@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Services from "../services/Services";
 import Pricing from "../pricing/Pricing";
+import Booking from "../booking/Booking";
 export default function Home() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
@@ -67,6 +68,10 @@ export default function Home() {
 
       <div data-aos="fade-up" data-aos-delay="200">
         <Pricing />
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="400">
+        <Booking />
       </div>
     </>
   );
