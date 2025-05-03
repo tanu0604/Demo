@@ -9,7 +9,7 @@ import Home from "./components/navigation/Home";
 import Services from "./components/services/Services";
 import Terms from "./components/terms&Conditions/Terms";
 import Pricing from "./components/pricing/Pricing.jsx";
-
+import Booking from "./components/booking/Booking.jsx"
 function App() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true }); // Initializes AOS
@@ -24,6 +24,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Terms />} />
+        <Route path="/book" element={<Booking />} />
 
       </Routes>
     </>
