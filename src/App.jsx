@@ -6,6 +6,9 @@ import "aos/dist/aos.css";
 import Top from "./components/navigation/Top";
 import Navigation from "./components/navigation/Navigation";
 import Home from "./components/navigation/Home";
+import Services from "./components/services/Services";
+import Terms from "./components/terms&Conditions/Terms";
+import Pricing from "./components/pricing/Pricing.jsx";
 
 function App() {
   useEffect(() => {
@@ -18,7 +21,10 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/contact" element={<Terms />} />
+
       </Routes>
     </>
   );
