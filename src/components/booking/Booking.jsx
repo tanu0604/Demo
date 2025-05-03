@@ -21,7 +21,7 @@ function Booking() {
     dropLoc: "",
   });
 
-  const [loading, setLoading] = useState(false); // loading spinner state
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,29 +35,27 @@ function Booking() {
     e.preventDefault();
     setLoading(true);
 
-    const formPayload = new FormData();
-    formPayload.append("name", formData.username);
-    formPayload.append("email", formData.emailId);
-    formPayload.append("phone", formData.phoneNumber);
-    formPayload.append("vehicle", formData.vehicleName);
-    formPayload.append("pickup_date", formData.dateOfPickup);
-    formPayload.append("pickup_time", formData.timeOfPickup);
-    formPayload.append("pickup_location", formData.pickupLoc);
-    formPayload.append("drop_location", formData.dropLoc);
+    const payload = new FormData();
+    payload.append("username", formData.username);
+    payload.append("emailId", formData.emailId);
+    payload.append("phoneNumber", formData.phoneNumber);
+    payload.append("vehicleName", formData.vehicleName);
+    payload.append("dateOfPickup", formData.dateOfPickup);
+    payload.append("timeOfPickup", formData.timeOfPickup);
+    payload.append("pickupLoc", formData.pickupLoc);
+    payload.append("dropLoc", formData.dropLoc);
+    payload.append("access_key", "8cc66ce8-880c-430e-a69a-abd912583f99");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formPayload,
-        headers: {
-          "Content-Type": "multipart/form-data",
-          "X-API-KEY": "8cc66ce8-880c-430e-a69a-abd912583f99", // Replace with your Web3Form API key
-        },
+        body: payload,
       });
 
       const data = await response.json();
+
       if (data.success) {
-        toast.success("Booking successful! 🎉", { position: "top-right" });
+        toast.success("Form Submitted Successfully");
         setFormData({
           username: "",
           emailId: "",
@@ -69,11 +67,10 @@ function Booking() {
           dropLoc: "",
         });
       } else {
-        toast.error("Booking failed: " + data.message, { position: "top-right" });
+        toast.error(data.message || "Something went wrong!");
       }
     } catch (error) {
-      console.error("Error: ", error);
-      toast.error("Booking failed: " + error.message, { position: "top-right" });
+      toast.error("Failed to submit the form");
     } finally {
       setLoading(false);
     }
