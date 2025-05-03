@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import bgImage from "../../assets/headingImgs/road.jpeg";
@@ -36,14 +35,28 @@ function Booking() {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/cab/booking",
-        formData
-      );
+    const formPayload = new FormData();
+    formPayload.append("name", formData.username);
+    formPayload.append("email", formData.emailId);
+    formPayload.append("phone", formData.phoneNumber);
+    formPayload.append("vehicle", formData.vehicleName);
+    formPayload.append("pickup_date", formData.dateOfPickup);
+    formPayload.append("pickup_time", formData.timeOfPickup);
+    formPayload.append("pickup_location", formData.pickupLoc);
+    formPayload.append("drop_location", formData.dropLoc);
 
-      if (response.status === 200 || response.status === 201) {
-        console.log("Form Data Before Submit: ", formData);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formPayload,
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "X-API-KEY": "8cc66ce8-880c-430e-a69a-abd912583f99", // Replace with your Web3Form API key
+        },
+      });
+
+      const data = await response.json();
+      if (data.success) {
         toast.success("Booking successful! 🎉", { position: "top-right" });
         setFormData({
           username: "",
@@ -55,24 +68,12 @@ function Booking() {
           pickupLoc: "",
           dropLoc: "",
         });
+      } else {
+        toast.error("Booking failed: " + data.message, { position: "top-right" });
       }
     } catch (error) {
-      if (error.response) {
-        console.error("Server Error: ", error.response.data);
-        toast.error("Booking failed: " + error.response.data.message, {
-          position: "top-right",
-        });
-      } else if (error.request) {
-        console.error("Network Error: ", error.request);
-        toast.error("Booking failed: No response from server.", {
-          position: "top-right",
-        });
-      } else {
-        console.error("Error: ", error.message);
-        toast.error("Booking failed: " + error.message, {
-          position: "top-right",
-        });
-      }
+      console.error("Error: ", error);
+      toast.error("Booking failed: " + error.message, { position: "top-right" });
     } finally {
       setLoading(false);
     }
