@@ -1,4 +1,15 @@
-body{
-  width:100%,
-    overflow:hidden
+/* app.css */
+
+/* Ensuring the body takes full width */
+body {
+  width: 100%;
+  overflow-x: hidden;  /* Prevent horizontal overflow */
+  margin: 0;
+  padding: 0;
+}
+
+/* Optionally, set the html to have full width and no scroll */
+html {
+  width: 100%;
+  overflow-x: hidden;
 }
