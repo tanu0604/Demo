@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import Services from "../services/Services";
 import Pricing from "../pricing/Pricing";
 import Booking from "../booking/Booking";
+
 export default function Home() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
