@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Services from "../services/Services";
-
+import Pricing from "../pricing/Pricing";
 export default function Home() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
@@ -63,6 +63,10 @@ export default function Home() {
 
       <div data-aos="fade-up">
         <Services />
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="200">
+        <Pricing />
       </div>
     </>
   );
