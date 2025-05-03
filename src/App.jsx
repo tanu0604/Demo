@@ -18,6 +18,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Home />} />
       </Routes>
     </>
   );
