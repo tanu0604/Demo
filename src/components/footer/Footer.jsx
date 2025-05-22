@@ -32,7 +32,7 @@ export default function Footer() {
           <h2 className="text-xl font-bold mb-2">One Cab Service</h2>
           <p className="text-sm flex items-center gap-2">
             <MapPin size={16} /> Shiv Ganga Puram Colony, Umarpur Neewa,
-            Dhoomanganj, Prayagraj - 21011
+            Dhoomanganj, Prayagraj - 211011
           </p>
           <p className="text-sm flex items-center gap-2">
             <MapPin size={16} /> Lane 109, Madhav Green City, Lucknow
