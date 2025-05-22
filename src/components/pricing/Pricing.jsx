@@ -5,8 +5,8 @@ import "aos/dist/aos.css";
 
 const routes = [
   { from: "Prayagraj", to: "Lucknow", oldPrice: "₹4500", newPrice: "₹3200" },
-  { from: "Prayagraj", to: "Kanpur", oldPrice: "₹4000", newPrice: "₹3000" },
-  { from: "Varanasi", to: "Prayagraj", oldPrice: "₹3000", newPrice: "₹2400" },
+  { from: "Prayagraj", to: "Kanpur", oldPrice: "₹4000", newPrice: "₹3200" },
+  { from: "Varanasi", to: "Prayagraj", oldPrice: "₹3000", newPrice: "₹2500" },
   { from: "Prayagraj", to: "Ayodhya", oldPrice: "₹3500", newPrice: "₹2700" },
   { from: "Lucknow", to: "Varanasi", oldPrice: "₹5000", newPrice: "₹4500" },
   { from: "Prayagraj", to: "Vrindavan", oldPrice: "₹11000", newPrice: "₹8000" },
