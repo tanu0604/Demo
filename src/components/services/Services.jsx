@@ -4,11 +4,13 @@ import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import cab1 from "../../assets/CabImages/cab1.jpeg";
-import cab2 from "../../assets/CabImages/cab2.jpeg";
-import cab3 from "../../assets/CabImages/cab3.jpeg";
+import cab1 from "../../assets/CabImages/cab1.jpg";
+import cab2 from "../../assets/CabImages/cab2.jpg";
+import cab3 from "../../assets/CabImages/cab3.jpg";
+import cab4 from "../../assets/CabImages/cab4.jpg";
+import cab5 from "../../assets/CabImages/cab5.jpg";
 
-const images = [cab1, cab2, cab3];
+const images = [cab1, cab2, cab3, cab4,cab5];
 
 export default function Services() {
   const [currentImage, setCurrentImage] = useState(0);
