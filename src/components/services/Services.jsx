@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -10,13 +9,13 @@ import cab3 from "../../assets/CabImages/cab3.jpg";
 import cab4 from "../../assets/CabImages/cab4.jpg";
 import cab5 from "../../assets/CabImages/cab5.jpg";
 
-const images = [cab1, cab2, cab3, cab4,cab5];
+const images = [cab1, cab2, cab3, cab4, cab5];
 
 export default function Services() {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true }); // Initialize AOS
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
   useEffect(() => {
@@ -54,31 +53,35 @@ export default function Services() {
           className="md:w-1/2 md:ml-10 text-center md:text-left mt-6 md:mt-0"
           data-aos="fade-left"
         >
-          <h2 className="text-3xl font-bold text-yellow-500">Your Ride, Your Way</h2>
+          <h2 className="text-3xl font-bold text-yellow-500">
+            Your Ride, Your Way
+          </h2>
           <p className="mt-4 text-gray-700 text-lg">
-            🚖 Experience seamless travel with us! Whether it's a quick one-way ride, a round trip, or a special event, we prioritize your comfort, security, and trust. Our well-maintained fleet and professional drivers ensure a smooth and reliable journey every time.
+            🚖 Experience seamless travel with us! Whether it's a quick one-way
+            ride, a round trip, or a special event, we prioritize your comfort,
+            security, and trust. Our well-maintained fleet and professional
+            drivers ensure a smooth and reliable journey every time.
           </p>
 
-          {/* Service List */}
-          <div className="grid grid-cols-2 gap-4 mt-6">
+          {/* Service Highlights */}
+          <div className="flex flex-wrap gap-3 mt-6 justify-center md:justify-start">
             {[
-              "One-Way Rides",
-              "Round Trips",
-              "Wedding Travel",
-              "Airport Transfers",
-              "Local Carriers",
-              "Bouncers for Security",
-            ].map((service, index) => (
-              <motion.div
+              "Comfort",
+              "Trust",
+              "Security",
+              "Reliability",
+              "Professionalism",
+              "Safety",
+            ].map((feature, index) => (
+              <motion.span
                 key={index}
-                className="flex items-center space-x-2 text-gray-800"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
+                className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <CheckCircle className="text-green-500" size={20} />
-                <span>{service}</span>
-              </motion.div>
+                {feature}
+              </motion.span>
             ))}
           </div>
         </div>
